@@ -23,13 +23,12 @@ class DishDetail extends Component{
     renderComments(dish){
         
         if(dish!=null){
-            let options = {year:'numeric', month:'short', date:'numeric'};
             const commentsArray = dish.comments.map((item)=>{
                 return(
                     <div key={item.id} >
                        <ul className="list-unstyled">
                            <li>{item.comment}</li><br/>
-                           <li><p>--{item.author},&nbsp; {new Date(item.date).toLocaleDateString("en-US", options )}</p></li>
+                           <li><p>--{item.author},&nbsp; {new Intl.DateTimeFormat('en-US',{year:'numeric', month:'short', day:'2-digit'}).format(new Date(Date.parse(item.date)))}</p></li>
                        </ul>
                     </div>
                 );
@@ -49,14 +48,17 @@ class DishDetail extends Component{
     }
     render(){
         return(
-            <div className="row">    
+           <div className="container">
+                <div className="row">    
                 <div className="col-12 col-md-5 m-1">
                     {this.renderDish(this.props.dish)}
                 </div>
                 <div className="col-12 col-md-5 m-1">
                     {this.renderComments(this.props.dish)} 
                 </div>   
-            </div>
+            </div>     
+           </div> 
+           
 
         );
         
