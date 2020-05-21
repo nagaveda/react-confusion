@@ -15,7 +15,6 @@ function Contact(props) {
                     </div>
             </div>
             <div className="row row-content">
-                
                 <div className="col-12">
                 <h3>Location Information</h3>
                 </div>
