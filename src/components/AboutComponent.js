@@ -11,7 +11,7 @@ const RenderLeader = ({leader})=>{
             </Media>
             <Media body className="ml-5">
                 <Media heading>{leader.name}</Media>
-                <Media title>{leader.designation}</Media>
+                <Media title="true">{leader.designation}</Media>
                 <p className="mt-2">{leader.description}</p>
             </Media>
         </Media>
