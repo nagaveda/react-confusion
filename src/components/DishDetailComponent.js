@@ -26,7 +26,6 @@ class CommentForm extends Component{
     }
     handleSubmit(values){
         this.toggleModal();
-        console.log('TEST: '+JSON.stringify(values));
         this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
     render(){
