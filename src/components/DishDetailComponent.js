@@ -26,7 +26,8 @@ class CommentForm extends Component{
     }
     handleSubmit(values){
         this.toggleModal();
-        this.props.postComment(this.props.dishId, values.rating, values.name, values.message);
+        console.log('TEST: '+JSON.stringify(values));
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
     render(){
         
@@ -53,7 +54,7 @@ class CommentForm extends Component{
                             <Row className="form-group">
                                 <Label htmlFor = "name" md={12}>Your Name</Label>
                                 <Col md={12}>
-                                    <Control.text model=".name" className="form-control" id="name" name="name" placeholder="Your Name"
+                                    <Control.text model=".author" className="form-control" id="name" name="name" placeholder="Your Name"
                                          validators={{
                                             required, minLength:minLength(3), maxLength:maxLength(15)
                                         }}
@@ -73,7 +74,7 @@ class CommentForm extends Component{
                             <Row className="form-group">
                                 <Label htmlFor = "comment" md={12}>Comment</Label>
                                 <Col md={12}>
-                                    <Control.textarea rows={12} model=".message" className="form-control" id="comment" name="comment" />
+                                    <Control.textarea rows={12} model=".comment" className="form-control" id="comment" name="comment" />
                                 </Col>
                             </Row>
                             
@@ -132,7 +133,10 @@ class CommentForm extends Component{
                          </Stagger>
                          
                          </ul>
-                         <CommentForm/>
+                         <CommentForm 
+                         postComment = {postComment}
+                             dishId = {dishId}
+                         />
                     </div>
                 );
             
