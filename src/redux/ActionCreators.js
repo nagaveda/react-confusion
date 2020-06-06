@@ -96,7 +96,7 @@ export const fetchComments = () => (dispatch) => {
         })
         .then(response => response.json())
         .then(comments => dispatch(addComments(comments)))
-        .catch(error => dispatch(commentsFailed(error.message))); ;
+        .catch(error => dispatch(commentsFailed(error.message)));
 }
 export const commentsFailed = (errmess) => ({
     type:ActionTypes.COMMENTS_FAILED,
